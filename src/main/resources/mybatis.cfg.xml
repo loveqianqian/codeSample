@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.heren.mnis.model.Patient" alias="Patient"/>
+        <typeAlias type="com.heren.mnis.model.NursingPlan" alias="NursingPlan"/>
+        <typeAlias type="com.heren.mnis.model.Notice" alias="Notice"/>
+        <typeAlias type="com.heren.mnis.model.Pio" alias="Pio"/>
+        <typeAlias type="com.heren.mnis.model.Order" alias="Order"/>
+        <typeAlias type="com.heren.mnis.model.ThreeTest" alias="ThreeTest"/>
+        <typeAlias type="com.heren.mnis.model.IntensiveCare" alias="IntensiveCare"/>
+        <typeAlias type="com.heren.mnis.model.Signs" alias="Signs"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="mapper/patient.xml" />
+        <mapper resource="mapper/nursingPlan.xml"/>
+        <mapper resource="mapper/notice.xml" />
+        <mapper resource="mapper/nursingRec.xml" />
+        <mapper resource="mapper/sys.xml" />
+        <mapper resource="mapper/insulin.xml" />
+        <mapper resource="mapper/pio.xml" />
+        <mapper resource="mapper/order.xml"/>
+        <mapper resource="mapper/threeTest.xml"/>
+        <mapper resource="mapper/commonDict.xml"/>
+        <mapper resource="mapper/transfusion.xml"/>
+        <mapper resource="mapper/intensiveCare.xml"/>
+        <mapper resource="mapper/signs.xml"/>
+    </mappers>
+</configuration>

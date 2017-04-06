@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.myloveqian.dao.F3hPrecipitationDao">
+
+    <resultMap id="AllColumnMap" type="cn.myloveqian.domain.F3hPrecipitation">
+        <result column="id" property="id"/>
+        <result column="jg" property="jg"/>
+        <result column="jf" property="jf"/>
+        <result column="f3h_id" property="f3hId"/>
+    </resultMap>
+
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO f3h_precipitation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null">`id`,</if>
+            <if test="pojo.jg!=null">`jg`,</if>
+            <if test="pojo.jf!=null">`jf`,</if>
+            <if test="pojo.f3hId!=null">`f3h_id`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.jg!=null">#{pojo.jg},</if>
+            <if test="pojo.jf!=null">#{pojo.jf},</if>
+            <if test="pojo.f3hId!=null">#{pojo.f3hId},</if>
+        </trim>
+    </insert>
+
+    <update id="update">
+        UPDATE f3h_precipitation
+        <set>
+            <if test="pojo.id != null">`id` = #{pojo.id},</if>
+            <if test="pojo.jg != null">`jg` = #{pojo.jg},</if>
+            <if test="pojo.jf != null">`jf` = #{pojo.jf},</if>
+            <if test="pojo.f3hId != null">`f3h_id` = #{pojo.f3hId}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+</mapper>
+
