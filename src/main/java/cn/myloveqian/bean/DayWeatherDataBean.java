@@ -56,6 +56,7 @@ public class DayWeatherDataBean {
     }
 
     public static class InfoBean {
+
         private List<String> day;
         private List<String> dawn;
         private List<String> night;
