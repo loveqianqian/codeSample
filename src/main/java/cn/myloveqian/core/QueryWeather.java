@@ -1,7 +1,9 @@
 package cn.myloveqian.core;
 
+import cn.myloveqian.bean.RealTimeDataBean;
 import cn.myloveqian.bean.WeatherDataBean;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -60,6 +62,12 @@ public class QueryWeather {
         System.out.println(result);
         WeatherDataBean weatherDataBean = queryWeather.packageResult(result, WeatherDataBean.class);
         System.out.println(weatherDataBean.getReason());
+        JSONObject jsonObject = JSON.parseObject(result);
+        JSONObject beanResult = jsonObject.getJSONObject("result");
+        JSONObject beanResultData = beanResult.getJSONObject("data");
+        String realTime = beanResultData.getString("realtime");
+        RealTimeDataBean realTimeDataBean = queryWeather.packageResult(realTime, RealTimeDataBean.class);
+        System.out.println(realTimeDataBean.getCity_code());
     }
 
 }
